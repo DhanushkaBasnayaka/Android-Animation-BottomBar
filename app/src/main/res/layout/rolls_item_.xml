@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/viewitem"
+    android:layout_height="250dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="138dp"
+        android:layout_height="210dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/spiderman_poster_large"
+        tools:layout_editor_absoluteY="5dp" />
+
+    <TextView
+        android:id="@+id/tex_name"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:maxLines="3"
+        android:text="gfgg gfggfggffgff"
+        android:textColor="#fff"
+        android:textSize="22dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/text_sinama"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintHorizontal_bias="0.223" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:numStars="10"
+        android:rating="3.5"
+        android:stepSize="4.0"
+        app:layout_constraintStart_toStartOf="@+id/tex_name"
+        app:layout_constraintTop_toBottomOf="@+id/tex_name"
+        tools:layout_editor_absoluteY="64dp" />
+
+    <TextView
+        android:id="@+id/text_sinama"
+        android:layout_width="0dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/sell_back"
+        android:fontFamily="@font/roboto_light"
+        android:padding="5dp"
+        android:text="Liberty Cinema"
+        android:textColor="#fff"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#59837b"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="246dp" />
+
+    <LinearLayout
+        android:layout_width="195dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/text_sinama"
+        app:layout_constraintStart_toStartOf="@+id/text_sinama"
+        app:layout_constraintVertical_bias="0.428"
+        app:layout_constraintEnd_toEndOf="@+id/text_sinama"
+        android:layout_marginEnd="8dp"
+        tools:layout_editor_absoluteY="185dp"
+        tools:layout_editor_absoluteX="167dp">
+
+        <LinearLayout
+
+            android:id="@+id/time_text"
+            android:background="@drawable/date_bg"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25"
+                android:id="@+id/date"
+                android:textColor="#fff"
+                android:textSize="28sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="April"
+                android:id="@+id/month"
+                android:layout_marginLeft="5dp"
+                android:textAllCaps="true"
+                android:fontFamily="@font/roboto_light"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <TextView
+            android:padding="8dp"
+            android:id="@+id/more_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="more"
+            android:gravity="center"
+            android:background="@drawable/more"
+            android:textAllCaps="true"
+            android:fontFamily="@font/roboto_light"
+            android:textColor="#fff"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
