@@ -3,6 +3,7 @@ package tuckerbx.elegantmeia.com.au.newapplication.view.adapters;
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -108,18 +110,25 @@ public class ListAdapters extends RecyclerView.Adapter<ListAdapters.Holder> impl
             lastPosition = position;
         }
 
-//        SimpleDateFormat curFormater = new SimpleDateFormat("yyyy-MM-dd");
-//        Date dateObj = null;
-//        try {
-//            dateObj = curFormater.parse(item.end_date);
-//
-//            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-//            String formattedDate = df.format(c.getTime());
-//
-//            System.out.println("Current time => " + formattedDate + "/" + dateObj);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
+        SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        SimpleDateFormat formatToUTC = new SimpleDateFormat("yyyy-MM-dd");
+        formatToUTC.setTimeZone(TimeZone.getTimeZone("GMT"));
+
+        SimpleDateFormat formatLocal = new SimpleDateFormat("MMM");
+        formatLocal.setTimeZone(TimeZone.getDefault());
+
+        SimpleDateFormat formatLocal2 = new SimpleDateFormat("d ");
+        formatLocal2.setTimeZone(TimeZone.getDefault());
+
+        try {
+            String str = formatLocal.format(formatToUTC.parse(item.booking_start_date));
+            String str2 = formatLocal2.format(formatToUTC.parse(item.booking_start_date));
+            holder.month.setText("" + str);
+            holder.date.setText("" + str2);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
 
 //
@@ -143,6 +152,12 @@ public class ListAdapters extends RecyclerView.Adapter<ListAdapters.Holder> impl
 
         @BindView(R.id.text_sinama)
         TextView txtSinama;
+
+        @BindView(R.id.date)
+        TextView date;
+
+        @BindView(R.id.month)
+        TextView month;
 
 
         @BindView(R.id.ratingBar)
