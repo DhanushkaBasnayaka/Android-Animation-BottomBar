@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -55,6 +57,9 @@ public class ListFregment extends BaseFregment implements CallApi.GetSDPListCall
 
     @Inject
     ApiService mSicModul;
+
+    @Inject
+    Picasso mPicasso;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -111,6 +116,7 @@ public class ListFregment extends BaseFregment implements CallApi.GetSDPListCall
     protected void inject(ApplicationComponent component) {
         this.mSicModul = component.getApplicatonService();
         this.mDataManager = component.getClasesink();
+        this.mPicasso = component.getPicasso();
     }
 
     @Override
@@ -118,7 +124,7 @@ public class ListFregment extends BaseFregment implements CallApi.GetSDPListCall
         mUser.addAll(sdpList.data);
 
 
-        adapters = new ListAdapters(getActivity(), this, mUser);
+        adapters = new ListAdapters(getActivity(), this, mUser, mPicasso);
         mRecyclerView.setAdapter(adapters);
 
     }
